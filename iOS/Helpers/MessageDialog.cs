@@ -7,7 +7,6 @@ namespace TestDemo.iOS
 {
 	public class MessageDialog : IMessageDialog
 	{
-
 		public void SendMessage(string message, string title = null)
 		{
 			EnsureInvokedOnMainThread(() =>

@@ -157,6 +157,11 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="ViewControllers\BaseViewController.cs" />
+    <Compile Include="GPLoginScreenViewController.cs" />
+    <Compile Include="GPLoginScreenViewController.designer.cs">
+      <DependentUpon>GPLoginScreenViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
@@ -166,7 +171,11 @@
   <ItemGroup>
     <InterfaceDefinition Include="ItemNewViewController.xib" />
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="iOS\Main.storyboard" />
     <InterfaceDefinition Include="Main.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewControllers\GPViewControllers\" />
   </ItemGroup>
   <Import Project="..\TestDemo\TestDemo.projitems" Label="Shared" Condition="Exists('..\TestDemo\TestDemo.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
