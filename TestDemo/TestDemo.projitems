@@ -31,9 +31,27 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IBaseScreenConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Validators\GPValidator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Network\Communication\NetworkRequestManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\INetworkReqeustManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Network\Models\NetworkRequestModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Network\Models\APIResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Network\Models\GPError.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Messages.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Network\APIManagers\LoginAPIManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ILoginAPI.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Network\Models\Request\LoginResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Network\Models\Response\LoginRequestModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IBaseAPI.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Network\APIManagers\BaseAPI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Utils\" />
     <Folder Include="$(MSBuildThisFileDirectory)Utils\Validators\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Network\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Network\APIManagers\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Network\Communication\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Network\Models\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Network\Models\Request\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Network\Models\Response\" />
   </ItemGroup>
 </Project>

@@ -29,7 +29,7 @@ namespace TestDemo.iOS
 												 .InstantiateViewController("tabViewController");
 			else
 				Window.RootViewController = UIStoryboard.FromName("Main", null)
-												 .InstantiateViewController("GPLoginViewController");
+												 .InstantiateViewController("GPLoginScreenViewController");
 
 			return true;
 		}

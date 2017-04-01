@@ -126,6 +126,10 @@
     <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\xamarin_logo%402x.png" />
     <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\xamarin_logo%403x.png" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\facebook.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\facebook.imageset\facebook%402x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\google.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\google.imageset\google%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\MessageDialog.cs" />
@@ -162,6 +166,7 @@
     <Compile Include="GPLoginScreenViewController.designer.cs">
       <DependentUpon>GPLoginScreenViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Custom Views\LoadingOverlay.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
@@ -176,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewControllers\GPViewControllers\" />
+    <Folder Include="Custom Views\" />
   </ItemGroup>
   <Import Project="..\TestDemo\TestDemo.projitems" Label="Shared" Condition="Exists('..\TestDemo\TestDemo.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
