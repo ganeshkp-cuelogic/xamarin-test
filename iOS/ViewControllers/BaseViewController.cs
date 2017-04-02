@@ -18,12 +18,12 @@ namespace TestDemo.iOS
 		}
 
 		#region Loading Indicaor
-		protected void showLoading()
+		protected void showLoading(String title)
 		{
 			var bounds = UIScreen.MainScreen.Bounds;
 
 			// show the loading overlay on the UI thread using the correct orientation sizing
-			loadPop = new LoadingOverlay((CGRect)bounds, "Signing in");
+			loadPop = new LoadingOverlay((CGRect)bounds, title);
 			View.Add(loadPop);
 		}
 

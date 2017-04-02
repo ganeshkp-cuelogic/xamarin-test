@@ -54,6 +54,10 @@ namespace TestDemo.iOS
 			textField.LeftView = leftView;
 		}
 
+		private void moveToRestruantsScreen() {
+			//AppDelegate.applicationDelegate().moveToRestruantViewController();
+		}
+
 		#endregion
 
 		#region Protocol Merthods
@@ -84,10 +88,9 @@ namespace TestDemo.iOS
 
 		#region Action Methods
 		partial void onClickOfLogin(UIButton sender)
-		{
-			Console.WriteLine("Button Cliked!!");
+		{			
 			if(validateFields()) {
-				showLoading();
+				showLoading("Signing in ...");
 				LoginAPIManager.
 				               SharedManager
 				               .doLogin(LoginRequestModel.requestModel(tfEmailID.Text, tfPassword.Text), (LoginResponse resposne, GPError error) =>
@@ -95,6 +98,7 @@ namespace TestDemo.iOS
 					hideLoading();
 					if(error == null) {
 						dialog.SendMessage("Login successfull", "Message");
+						moveToRestruantsScreen();
 					} else {						
 						dialog.SendMessage(error.Message, "Alert");
 					}				 							

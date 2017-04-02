@@ -48,8 +48,29 @@ namespace TestDemo
 				apiResult.Error = new GPError(Messages.API_FAILURE_MESSAGE);
 			}
 
+			return apiResult;		
+		}
+
+		public async Task<APIResult> sendGetRequest(String url)
+		{
+			var uri = new Uri(url);
+
+			HttpResponseMessage response = null;
+			client.DefaultRequestHeaders.Add("user-key","c8738438ad7f78bffe17ef6fe27c95b4");
+			response = await client.GetAsync(uri);
+			var contentBody = await response.Content.ReadAsStringAsync();
+
+			APIResult apiResult = new APIResult();
+			if (response.IsSuccessStatusCode) {
+				apiResult.ResponseJSON = response.Content.ToString();
+			}
+			else {
+				apiResult.Error = new GPError(Messages.API_FAILURE_MESSAGE);
+			}
+
 			return apiResult;
 		}
+
 		#endregion
 
 	}

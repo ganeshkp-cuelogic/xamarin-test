@@ -12,6 +12,10 @@ namespace TestDemo.iOS
 	{
 		// class-level declarations
 
+		public static AppDelegate applicationDelegate() {
+			return (TestDemo.iOS.AppDelegate)UIApplication.SharedApplication.Delegate;
+		}
+
 		public override UIWindow Window
 		{
 			get;
@@ -28,8 +32,7 @@ namespace TestDemo.iOS
 				Window.RootViewController = UIStoryboard.FromName("Main", null)
 												 .InstantiateViewController("tabViewController");
 			else
-				Window.RootViewController = UIStoryboard.FromName("Main", null)
-												 .InstantiateViewController("GPLoginScreenViewController");
+				Window.RootViewController = UIStoryboard.FromName("Main", null).InstantiateViewController("GPLoginScreenViewControllerID");
 
 			return true;
 		}
@@ -64,5 +67,12 @@ namespace TestDemo.iOS
 		{
 			// Called when the application is about to terminate. Save data, if needed. See also DidEnterBackground.
 		}
+
+		public void moveToRestruantViewController() {
+			GPRestruantsViewController restruantsViewController = (GPRestruantsViewController)UIStoryboard.FromName("Main", null).InstantiateViewController("GPRestruantsViewController");
+			UINavigationController navigationController = new UINavigationController(restruantsViewController);
+			Window.RootViewController = navigationController;
+		}
+
 	}
 }

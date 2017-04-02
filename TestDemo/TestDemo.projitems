@@ -43,6 +43,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Network\Models\Response\LoginRequestModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IBaseAPI.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Network\APIManagers\BaseAPI.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IRestruantsAPI.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Network\APIManagers\RestruantsAPIManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\RestruantModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Network\Models\Response\RestruantsResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Utils\" />

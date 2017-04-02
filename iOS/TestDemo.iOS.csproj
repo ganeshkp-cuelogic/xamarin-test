@@ -167,6 +167,11 @@
       <DependentUpon>GPLoginScreenViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Custom Views\LoadingOverlay.cs" />
+    <Compile Include="GPRestruantsViewController.cs" />
+    <Compile Include="GPRestruantsViewController.designer.cs">
+      <DependentUpon>GPRestruantsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Datasource\RestrunatsDatasource.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
@@ -182,6 +187,7 @@
   <ItemGroup>
     <Folder Include="ViewControllers\GPViewControllers\" />
     <Folder Include="Custom Views\" />
+    <Folder Include="Datasource\" />
   </ItemGroup>
   <Import Project="..\TestDemo\TestDemo.projitems" Label="Shared" Condition="Exists('..\TestDemo\TestDemo.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
