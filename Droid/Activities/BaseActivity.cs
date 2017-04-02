@@ -1,16 +1,22 @@
-﻿using Android.OS;
+﻿using Android.App;
+using Android.OS;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
+using Android.Widget;
 
 namespace TestDemo.Droid
 {
 	public class BaseActivity : AppCompatActivity
 	{
+
+		private ProgressDialog mProgressDialog;
+		protected IMessageDialog mMessageDialog = new MessageDialog();
+
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 			SetContentView(LayoutResource);
-			Toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+			Toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
 			if (Toolbar != null)
 			{
 				SetSupportActionBar(Toolbar);
@@ -20,7 +26,7 @@ namespace TestDemo.Droid
 			}
 		}
 
-		public Toolbar Toolbar
+		public Android.Support.V7.Widget.Toolbar Toolbar
 		{
 			get;
 			set;
@@ -35,6 +41,19 @@ namespace TestDemo.Droid
 		{
 			set { Toolbar?.SetNavigationIcon(value); }
 		}
+
+
+		#region Loading Indicator
+		protected void showLoadingIndicator(string loadingText) {
+			mProgressDialog = ProgressDialog.Show(this, "Please wait...", "Checking account info...", true);
+		}
+
+		protected void hideProgressDialog() {
+			mProgressDialog.Hide();
+		}
+		#endregion
 	}
+
+
 }
 

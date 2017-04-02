@@ -17,12 +17,65 @@ namespace TestDemo.Droid
 	[Activity(Label = "@string/login",
 		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
 		ScreenOrientation = ScreenOrientation.Portrait)]
-	public class GPLoginActivity : Activity
+	public class GPLoginActivity : BaseActivity
 	{
+		protected override int LayoutResource => Resource.Layout.activity_gplogin;
+
+		EditText mEditTextEmail, mEditTextPassword;
+		TextView mLoginButton;
+
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
-			SetContentView(Resource.Layout.activity_gplogin);
+			initUI();
 		}
+
+		#region Private Methods
+		private void initUI()
+		{
+			mEditTextEmail = (EditText)FindViewById(Resource.Id.editTextEmail);
+			mEditTextPassword = (EditText)FindViewById(Resource.Id.editTextPassword);
+			mLoginButton = (TextView)FindViewById(Resource.Id.tvLogin);
+			mLoginButton.Click += (sender, e) =>
+			{
+				if(validateFields()) {
+					showLoadingIndicator("Signing in ...");
+					LoginAPIManager.
+							   SharedManager
+					               .doLogin(LoginRequestModel.requestModel(mEditTextEmail.Text, mEditTextPassword.Text), (LoginResponse resposne, GPError error) =>
+									 {
+										hideProgressDialog();
+										 if (error == null) {
+											mMessageDialog.SendMessage("Login successfull", "Message");
+										 } else {
+											 mMessageDialog.SendMessage(error.Message, "Alert");
+										 }
+									 });	
+				}				
+			};
+		}
+
+		private bool validateFields()
+		{
+			bool status = true;
+			if (mEditTextEmail.Text.Length == 0)
+			{
+				status = false;
+				mMessageDialog.SendMessage("Please enter email ID", "Alert");
+			}
+			else if (!GPValidator.isEmailOK(mEditTextEmail.Text))
+			{
+				status = false;
+				mMessageDialog.SendMessage("Please enter valid email ID", "Alert");
+			}
+			else if (mEditTextPassword.Text.Length == 0)
+			{
+				status = false;
+				mMessageDialog.SendMessage("Please enter password", "Alert");
+			}
+			return status;
+		}
+
+		#endregion
 	}
 }
