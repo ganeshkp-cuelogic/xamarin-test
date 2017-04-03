@@ -18,11 +18,12 @@ namespace TestDemo.iOS
 		{
 			base.ViewDidLoad();
 			configureUI();
+			fetchRestruants();
 		}
 
 		private void configureUI() {
-			tblRestruants.Source = dataSource;
-			tblRestruants.ReloadData();
+			tblViewRestruants.Source = dataSource;
+			tblViewRestruants.ReloadData();
 		}    
 
 		private void fetchRestruants() {

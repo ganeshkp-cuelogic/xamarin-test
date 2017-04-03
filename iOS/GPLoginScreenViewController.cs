@@ -55,7 +55,8 @@ namespace TestDemo.iOS
 		}
 
 		private void moveToRestruantsScreen() {
-			//AppDelegate.applicationDelegate().moveToRestruantViewController();
+			var ad = (AppDelegate)UIApplication.SharedApplication.Delegate;
+			ad.moveToRestruantViewController();
 		}
 
 		#endregion

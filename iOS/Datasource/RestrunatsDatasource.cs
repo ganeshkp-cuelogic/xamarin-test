@@ -21,6 +21,7 @@ namespace TestDemo.iOS
 			UITableViewCell cell = tableView.DequeueReusableCell("cell", indexPath);
 
 			UIImageView imgViewThumb = (UIImageView)cell.ContentView.ViewWithTag(100);
+			imgViewThumb.BackgroundColor = UIColor.Brown;
 			UILabel lblName = (UILabel)cell.ContentView.ViewWithTag(200);
 			UILabel lblCost = (UILabel)cell.ContentView.ViewWithTag(300);
 			UILabel lblCuisine = (UILabel)cell.ContentView.ViewWithTag(400);

@@ -433,7 +433,7 @@
         <!--Login Screen View Controller-->
         <scene sceneID="alb-PX-pAU">
             <objects>
-                <viewController id="xK7-t9-cn3" customClass="GPLoginScreenViewController" sceneMemberID="viewController" useStoryboardIdentifierAsRestorationIdentifier="YES" storyboardIdentifier="GPLoginScreenViewControllerID">
+                <viewController id="xK7-t9-cn3" customClass="GPLoginScreenViewController" sceneMemberID="viewController" useStoryboardIdentifierAsRestorationIdentifier="YES" storyboardIdentifier="LoginStoryboardID">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KIj-ul-fec"/>
                         <viewControllerLayoutGuide type="bottom" id="JEC-GS-Ash"/>
@@ -612,7 +612,7 @@
         <!--Restruants-->
         <scene sceneID="Wno-CO-qC0">
             <objects>
-                <viewController storyboardIdentifier="GPRestruantsViewController" title="Restruants" id="xSM-hr-BS8" customClass="GPRestruantsViewControllerGPRestruantsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GPRestruantsViewController" title="Restruants" id="xSM-hr-BS8" customClass="GPRestruantsViewController" sceneMemberID="viewController" automaticallyAdjustsScrollViewInsets="NO">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9YB-zb-oxT"/>
                         <viewControllerLayoutGuide type="bottom" id="BLq-vE-vUH"/>
@@ -696,7 +696,7 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
-                        <outlet property="tblRestruants" destination="pkc-W4-XaP" id="name-outlet-pkc-W4-XaP"/>
+                        <outlet property="tblViewRestruants" destination="pkc-W4-XaP" id="name-outlet-pkc-W4-XaP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3rM-1l-NWo" userLabel="First Responder" sceneMemberID="firstResponder"/>

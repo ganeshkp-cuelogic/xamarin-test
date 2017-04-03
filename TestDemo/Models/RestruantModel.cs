@@ -7,9 +7,9 @@ namespace TestDemo
 		{
 		}
 
-		public string name;
-		public string thumb;
-		public string cuisines;
-		public string average_cost_for_two;
+		public string name{ get; set; }
+		public string thumb{ get; set; }
+		public string cuisines{ get; set; }
+		public string average_cost_for_two{ get; set; }
 	}
 }

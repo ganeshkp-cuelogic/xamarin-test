@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace TestDemo
 {
 	public class RestruantsResponse
@@ -7,6 +9,6 @@ namespace TestDemo
 		{
 		}
 
-		public Array restrunts;
+		public IEnumerable<RestruantModel> restaurants{ get; set; }
 	}
 }

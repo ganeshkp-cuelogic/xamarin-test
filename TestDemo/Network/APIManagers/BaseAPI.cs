@@ -5,6 +5,7 @@ namespace TestDemo
 	{
 		public BaseAPI()
 		{
+			
 		}
 
 		private String BASE_URL = "http://13.65.243.78/task_manager/v1";

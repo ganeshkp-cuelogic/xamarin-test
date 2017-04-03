@@ -13,7 +13,7 @@ namespace TestDemo.iOS
 		// class-level declarations
 
 		public static AppDelegate applicationDelegate() {
-			return (TestDemo.iOS.AppDelegate)UIApplication.SharedApplication.Delegate;
+			return UIApplication.SharedApplication.Delegate as AppDelegate;
 		}
 
 		public override UIWindow Window
@@ -32,7 +32,7 @@ namespace TestDemo.iOS
 				Window.RootViewController = UIStoryboard.FromName("Main", null)
 												 .InstantiateViewController("tabViewController");
 			else
-				Window.RootViewController = UIStoryboard.FromName("Main", null).InstantiateViewController("GPLoginScreenViewControllerID");
+				Window.RootViewController = UIStoryboard.FromName("Main", null).InstantiateViewController("LoginStoryboardID");
 
 			return true;
 		}
@@ -69,8 +69,7 @@ namespace TestDemo.iOS
 		}
 
 		public void moveToRestruantViewController() {
-			GPRestruantsViewController restruantsViewController = (GPRestruantsViewController)UIStoryboard.FromName("Main", null).InstantiateViewController("GPRestruantsViewController");
-			UINavigationController navigationController = new UINavigationController(restruantsViewController);
+			UINavigationController navigationController = new UINavigationController(UIStoryboard.FromName("Main", null).InstantiateViewController("GPRestruantsViewController"));
 			Window.RootViewController = navigationController;
 		}
 

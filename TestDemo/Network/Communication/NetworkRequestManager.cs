@@ -62,7 +62,7 @@ namespace TestDemo
 
 			APIResult apiResult = new APIResult();
 			if (response.IsSuccessStatusCode) {
-				apiResult.ResponseJSON = response.Content.ToString();
+				apiResult.ResponseJSON = contentBody;
 			}
 			else {
 				apiResult.Error = new GPError(Messages.API_FAILURE_MESSAGE);

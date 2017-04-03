@@ -16,13 +16,13 @@ namespace TestDemo.iOS
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITableView tblRestruants { get; set; }
+        UIKit.UITableView tblViewRestruants { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (tblRestruants != null) {
-                tblRestruants.Dispose ();
-                tblRestruants = null;
+            if (tblViewRestruants != null) {
+                tblViewRestruants.Dispose ();
+                tblViewRestruants = null;
             }
         }
     }
