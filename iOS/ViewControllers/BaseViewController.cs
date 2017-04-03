@@ -24,12 +24,13 @@ namespace TestDemo.iOS
 
 			// show the loading overlay on the UI thread using the correct orientation sizing
 			loadPop = new LoadingOverlay((CGRect)bounds, title);
-			View.Add(loadPop);
+			AppDelegate.applicationDelegate().Window.Add(loadPop);
 		}
 
 		protected void hideLoading()
 		{
 			loadPop.Hide();
+			loadPop.RemoveFromSuperview();
 		}
 		#endregion
 	}

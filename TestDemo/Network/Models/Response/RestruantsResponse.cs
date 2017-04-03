@@ -9,6 +9,6 @@ namespace TestDemo
 		{
 		}
 
-		public IEnumerable<RestruantModel> restaurants{ get; set; }
+		public List<RestruantModel> restaurants{ get; set; }
 	}
 }

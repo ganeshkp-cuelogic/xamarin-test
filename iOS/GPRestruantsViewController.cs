@@ -2,6 +2,7 @@ using Foundation;
 using System;
 using UIKit;
 
+
 namespace TestDemo.iOS
 {
 	public partial class GPRestruantsViewController : BaseViewController
@@ -28,9 +29,13 @@ namespace TestDemo.iOS
 
 		private void fetchRestruants() {
 			showLoading("Fetching Restruants ...");
-			restruantsAPI.getAllRestraunts((RestruantsResponse arg1, GPError arg2) => {
-				hideLoading();
-
+			restruantsAPI.getAllRestraunts((RestruantsResponse restruants, GPError arg2) => {
+				InvokeOnMainThread(()=>{
+					hideLoading();
+					dataSource = new RestrunatsDatasource(restruants.restaurants);
+					tblViewRestruants.Source = dataSource;
+					tblViewRestruants.ReloadData();	
+				});
 			});
 		}
 	}

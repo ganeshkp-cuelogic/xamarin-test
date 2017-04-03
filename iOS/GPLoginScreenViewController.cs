@@ -19,7 +19,7 @@ namespace TestDemo.iOS
 			base.ViewDidLoad();
 
 			//FIXME - Remove this
-			tfEmailID.Text = "ganesh.nist@yopmail.com";
+			tfEmailID.Text = "ganesh.nist@gmail.com";
 			tfPassword.Text = "adminasdf";
 
 		}
@@ -90,6 +90,7 @@ namespace TestDemo.iOS
 		#region Action Methods
 		partial void onClickOfLogin(UIButton sender)
 		{			
+			View.EndEditing(true);
 			if(validateFields()) {
 				showLoading("Signing in ...");
 				LoginAPIManager.

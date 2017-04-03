@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -373,15 +372,15 @@
                                 <exclude reference="2136"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="2127"/>
+                                <exclude reference="2130"/>
+                                <exclude reference="2131"/>
+                                <exclude reference="2132"/>
                                 <exclude reference="2137"/>
                                 <exclude reference="2140"/>
                                 <exclude reference="2138"/>
                                 <exclude reference="2139"/>
                                 <exclude reference="2141"/>
-                                <exclude reference="2127"/>
-                                <exclude reference="2130"/>
-                                <exclude reference="2131"/>
-                                <exclude reference="2132"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -390,15 +389,15 @@
                                 <include reference="2136"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="2127"/>
+                                <include reference="2130"/>
+                                <include reference="2131"/>
+                                <include reference="2132"/>
                                 <include reference="2137"/>
                                 <include reference="2140"/>
                                 <include reference="2138"/>
                                 <include reference="2139"/>
                                 <include reference="2141"/>
-                                <include reference="2127"/>
-                                <include reference="2130"/>
-                                <include reference="2131"/>
-                                <include reference="2132"/>
                             </mask>
                         </variation>
                     </view>
@@ -433,7 +432,7 @@
         <!--Login Screen View Controller-->
         <scene sceneID="alb-PX-pAU">
             <objects>
-                <viewController id="xK7-t9-cn3" customClass="GPLoginScreenViewController" sceneMemberID="viewController" useStoryboardIdentifierAsRestorationIdentifier="YES" storyboardIdentifier="LoginStoryboardID">
+                <viewController id="xK7-t9-cn3" customClass="GPLoginScreenViewController" sceneMemberID="viewController" storyboardIdentifier="MyLoginId">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KIj-ul-fec"/>
                         <viewControllerLayoutGuide type="bottom" id="JEC-GS-Ash"/>
@@ -607,12 +606,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5NQ-08-OmA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4346.4" y="-8203.448"/>
+            <point key="canvasLocation" x="-4350.4" y="-8232.448"/>
         </scene>
         <!--Restruants-->
         <scene sceneID="Wno-CO-qC0">
             <objects>
-                <viewController storyboardIdentifier="GPRestruantsViewController" title="Restruants" id="xSM-hr-BS8" customClass="GPRestruantsViewController" sceneMemberID="viewController" automaticallyAdjustsScrollViewInsets="NO">
+                <viewController storyboardIdentifier="GPRestruantsViewController" title="Restruants" automaticallyAdjustsScrollViewInsets="NO" id="xSM-hr-BS8" customClass="GPRestruantsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9YB-zb-oxT"/>
                         <viewControllerLayoutGuide type="bottom" id="BLq-vE-vUH"/>
@@ -632,11 +631,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="125.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jU1-6k-KUJ">
-                                                    <rect key="frame" x="22" y="27" width="70" height="70"/>
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jU1-6k-KUJ">
+                                                    <rect key="frame" x="12" y="17" width="90" height="90"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="70" id="GVC-ne-EAP"/>
-                                                        <constraint firstAttribute="width" constant="70" id="LeE-pq-W6x"/>
+                                                        <constraint firstAttribute="height" constant="90" id="GVC-ne-EAP"/>
+                                                        <constraint firstAttribute="width" constant="90" id="LeE-pq-W6x"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="200" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restruant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOs-XE-aRx" misplaced="YES">
@@ -644,7 +643,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="SQY-2F-Opr"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15" weight="semibold"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -653,7 +652,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="mSe-e9-Z6k"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -662,23 +661,23 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="HBh-Z8-Yjk"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="jU1-6k-KUJ" firstAttribute="leading" secondItem="Txz-q0-PQj" secondAttribute="leading" constant="22" id="CIN-Xw-Gsx"/>
+                                                <constraint firstItem="jU1-6k-KUJ" firstAttribute="leading" secondItem="Txz-q0-PQj" secondAttribute="leading" constant="12" id="CIN-Xw-Gsx"/>
                                                 <constraint firstAttribute="trailing" secondItem="hOs-XE-aRx" secondAttribute="trailing" constant="16" id="Qz6-ct-kDb"/>
                                                 <constraint firstItem="UpX-Zh-KsF" firstAttribute="top" secondItem="hOs-XE-aRx" secondAttribute="bottom" constant="7" id="R1Z-5d-7Sm"/>
-                                                <constraint firstItem="UpX-Zh-KsF" firstAttribute="leading" secondItem="jU1-6k-KUJ" secondAttribute="trailing" constant="20" id="TOT-wB-c1a"/>
-                                                <constraint firstItem="hOs-XE-aRx" firstAttribute="leading" secondItem="jU1-6k-KUJ" secondAttribute="trailing" constant="20" id="Uq3-hp-fwg"/>
+                                                <constraint firstItem="UpX-Zh-KsF" firstAttribute="leading" secondItem="jU1-6k-KUJ" secondAttribute="trailing" constant="10" id="TOT-wB-c1a"/>
+                                                <constraint firstItem="hOs-XE-aRx" firstAttribute="leading" secondItem="jU1-6k-KUJ" secondAttribute="trailing" constant="10" id="Uq3-hp-fwg"/>
                                                 <constraint firstItem="2Y8-aC-b1q" firstAttribute="top" secondItem="UpX-Zh-KsF" secondAttribute="bottom" constant="8" id="X5S-Uk-t4V"/>
                                                 <constraint firstAttribute="trailing" secondItem="2Y8-aC-b1q" secondAttribute="trailing" constant="16" id="iiF-vB-AA5"/>
-                                                <constraint firstItem="2Y8-aC-b1q" firstAttribute="leading" secondItem="jU1-6k-KUJ" secondAttribute="trailing" constant="20" id="qNN-Wr-dnV"/>
+                                                <constraint firstItem="2Y8-aC-b1q" firstAttribute="leading" secondItem="jU1-6k-KUJ" secondAttribute="trailing" constant="10" id="qNN-Wr-dnV"/>
                                                 <constraint firstAttribute="trailing" secondItem="UpX-Zh-KsF" secondAttribute="trailing" constant="16" id="rSd-dN-14G"/>
                                                 <constraint firstItem="hOs-XE-aRx" firstAttribute="top" secondItem="Txz-q0-PQj" secondAttribute="top" constant="24" id="xcz-NM-HzX"/>
-                                                <constraint firstItem="jU1-6k-KUJ" firstAttribute="top" secondItem="Txz-q0-PQj" secondAttribute="top" constant="27" id="xgP-50-Dzh"/>
+                                                <constraint firstItem="jU1-6k-KUJ" firstAttribute="top" secondItem="Txz-q0-PQj" secondAttribute="top" constant="17" id="xgP-50-Dzh"/>
                                                 <constraint firstAttribute="bottom" secondItem="2Y8-aC-b1q" secondAttribute="bottom" constant="23.5" id="zRQ-zs-cyS"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -775,5 +774,6 @@
         <image name="facebook" width="44" height="44"/>
         <image name="google" width="44" height="44"/>
         <image name="ProfileImage" width="95" height="95"/>
+        <image name="restr" width="70" height="70"/>
     </resources>
 </document>

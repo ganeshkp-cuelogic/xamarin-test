@@ -32,7 +32,7 @@ namespace TestDemo.iOS
 				Window.RootViewController = UIStoryboard.FromName("Main", null)
 												 .InstantiateViewController("tabViewController");
 			else
-				Window.RootViewController = UIStoryboard.FromName("Main", null).InstantiateViewController("LoginStoryboardID");
+				Window.RootViewController = UIStoryboard.FromName("Main", null).InstantiateViewController("MyLoginId");
 
 			return true;
 		}
