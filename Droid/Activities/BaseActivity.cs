@@ -20,9 +20,8 @@ namespace TestDemo.Droid
 			if (Toolbar != null)
 			{
 				SetSupportActionBar(Toolbar);
-				SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+				SupportActionBar.SetDisplayHomeAsUpEnabled(false);
 				SupportActionBar.SetHomeButtonEnabled(true);
-
 			}
 		}
 
@@ -45,7 +44,7 @@ namespace TestDemo.Droid
 
 		#region Loading Indicator
 		protected void showLoadingIndicator(string loadingText) {
-			mProgressDialog = ProgressDialog.Show(this, "Please wait...", "Checking account info...", true);
+			mProgressDialog = ProgressDialog.Show(this, "", loadingText, false);
 		}
 
 		protected void hideProgressDialog() {

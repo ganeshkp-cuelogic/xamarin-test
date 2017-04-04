@@ -34,7 +34,9 @@ namespace TestDemo.Droid
 		private void initUI()
 		{
 			mEditTextEmail = (EditText)FindViewById(Resource.Id.editTextEmail);
+			mEditTextEmail.Text = "ganesh.nist@gmail.com";
 			mEditTextPassword = (EditText)FindViewById(Resource.Id.editTextPassword);
+			mEditTextPassword.Text = "adminasdf";
 			mLoginButton = (TextView)FindViewById(Resource.Id.tvLogin);
 			mLoginButton.Click += (sender, e) =>
 			{
@@ -47,6 +49,7 @@ namespace TestDemo.Droid
 										hideProgressDialog();
 										 if (error == null) {
 											mMessageDialog.SendMessage("Login successfull", "Message");
+											moveToMainScreen();
 										 } else {
 											 mMessageDialog.SendMessage(error.Message, "Alert");
 										 }
@@ -76,6 +79,12 @@ namespace TestDemo.Droid
 			return status;
 		}
 
+		private void moveToMainScreen() {
+			var intent = new Intent(this, typeof(GPRestaurantsActivity));
+			intent.AddFlags(ActivityFlags.ClearTop);
+			StartActivity(intent);
+			Finish();
+		}
 		#endregion
 	}
 }

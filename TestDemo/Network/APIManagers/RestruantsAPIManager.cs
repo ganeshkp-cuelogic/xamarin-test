@@ -15,7 +15,7 @@ namespace TestDemo
 			JsonSerializerSettings settings = new JsonSerializerSettings() { 
 			
 				TypeNameHandling = TypeNameHandling.Objects
-		};
+			};
 
 			RestruantsResponse restaurantResponse = JsonConvert.DeserializeObject<RestruantsResponse> (apiResult.ResponseJSON, settings);
 			callback(restaurantResponse, apiResult.Error);

@@ -130,7 +130,7 @@
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Activities\GPLoginActivity.cs" />
     <Compile Include="Activities\GPRestaurantsActivity.cs" />
-    <Compile Include="Fragments\GPRestaurantFragment.cs" />
+    <Compile Include="Adapters\GPRestaurantsRecyclerViewAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />
@@ -182,12 +182,17 @@
     <AndroidResource Include="Resources\drawable\rounder_corner.axml" />
     <AndroidResource Include="Resources\drawable\google.png" />
     <AndroidResource Include="Resources\drawable\facebook.png" />
+    <AndroidResource Include="Resources\layout\activity_restaurants.axml" />
+    <AndroidResource Include="Resources\layout\layout_row_restaurant.axml" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="UniversalImageLoader">
       <Version>1.9.4.1</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Adapters\" />
   </ItemGroup>
   <Import Project="..\TestDemo\TestDemo.projitems" Label="Shared" Condition="Exists('..\TestDemo\TestDemo.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

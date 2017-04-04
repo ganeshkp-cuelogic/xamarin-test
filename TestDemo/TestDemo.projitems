@@ -47,6 +47,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Network\APIManagers\RestruantsAPIManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\RestruantModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Network\Models\Response\RestruantsResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\GPRestaurantsVIewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Utils\" />

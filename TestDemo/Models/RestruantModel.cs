@@ -16,6 +16,4 @@ namespace TestDemo
 		public string cuisines { get; set; }
 		public string average_cost_for_two { get; set; }
 	}
-
-
 }

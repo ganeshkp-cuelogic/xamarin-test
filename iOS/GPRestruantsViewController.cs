@@ -20,6 +20,8 @@ namespace TestDemo.iOS
 			base.ViewDidLoad();
 			configureUI();
 			fetchRestruants();
+
+			Title = "Restaurants";
 		}
 
 		private void configureUI() {

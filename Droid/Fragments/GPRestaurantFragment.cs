@@ -8,16 +8,19 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V7.Widget;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
 
 namespace TestDemo.Droid
 {
-	public class GPRestaurantFragment : Fragment
+	public class GPRestaurantFragment : Android.Support.V4.App.Fragment, IFragmentVisible
 	{
-		public static GPRestaurantFragment NewInstance() =>
-			new GPRestaurantFragment { Arguments = new Bundle() };
+		public void BecameVisible()
+		{
+			
+		}
 
 		public override void OnCreate(Bundle savedInstanceState)
 		{
@@ -28,10 +31,13 @@ namespace TestDemo.Droid
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
-			// Use this to return your custom view for this Fragment
-			// return inflater.Inflate(Resource.Layout.YourFragment, container, false);
+			View view = inflater.Inflate(Resource.Layout.fragment_restaurants, container, false);
+			var recyclerView =
+				view.FindViewById<RecyclerView>(Resource.Id.recyclerView);
 
-			return base.OnCreateView(inflater, container, savedInstanceState);
+			recyclerView.HasFixedSize = true;
+
+			return view;
 		}
 	}
 }
