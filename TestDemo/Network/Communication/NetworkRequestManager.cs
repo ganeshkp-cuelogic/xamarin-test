@@ -42,7 +42,7 @@ namespace TestDemo
 					apiResult.Error = new GPError(errorResponse.message);
 				}
 				else {
-					apiResult.ResponseJSON = response.Content.ToString();
+					apiResult.ResponseJSON = contentBody;
 				}
 			} else {
 				apiResult.Error = new GPError(Messages.API_FAILURE_MESSAGE);

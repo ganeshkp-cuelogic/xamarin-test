@@ -48,6 +48,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\RestruantModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Network\Models\Response\RestruantsResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\GPRestaurantsVIewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\UserInfoModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Repository\AppRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IAppRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataBase\DBManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IDBManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\NetworkReachabilityManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Providers\GPRestaurantsProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Utils\" />
@@ -58,5 +65,8 @@
     <Folder Include="$(MSBuildThisFileDirectory)Network\Models\" />
     <Folder Include="$(MSBuildThisFileDirectory)Network\Models\Request\" />
     <Folder Include="$(MSBuildThisFileDirectory)Network\Models\Response\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Repository\" />
+    <Folder Include="$(MSBuildThisFileDirectory)DataBase\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Providers\" />
   </ItemGroup>
 </Project>

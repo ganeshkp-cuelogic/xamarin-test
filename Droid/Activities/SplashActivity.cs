@@ -12,9 +12,11 @@ namespace TestDemo.Droid
 		{
 			base.OnCreate(savedInstanceState);
 
+			DBManager.sharedManager.createDataBase();
+
 			Intent newIntent;
-			if (Settings.IsLoggedIn)
-				newIntent = new Intent(this, typeof(MainActivity));
+			if (AppRepository.sharedRepository.isUserLoggedIn())
+				newIntent = new Intent(this, typeof(GPRestaurantsActivity));
 			else
 				newIntent = new Intent(this, typeof(GPLoginActivity));
 

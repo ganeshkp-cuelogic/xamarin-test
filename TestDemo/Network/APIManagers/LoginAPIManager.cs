@@ -28,7 +28,13 @@ namespace TestDemo
 			String strInputJson = JsonConvert.SerializeObject(loginRequest);
 
 			APIResult result = await NetworkRequestManager.Sharedmanager.sendPostRequest(strInputJson, completeURL);
+			UserInfoModel userInfoModel = JsonConvert.DeserializeObject<UserInfoModel>(result.ResponseJSON);
 			LoginResponse loginResponse = new LoginResponse();
+			loginResponse.userInfo = userInfoModel;
+
+			//Save user info
+			AppRepository.sharedRepository.saveUserInfo(userInfoModel);
+
 			callback(loginResponse, result.Error);
 		}
 	}

@@ -432,7 +432,7 @@
         <!--Login Screen View Controller-->
         <scene sceneID="alb-PX-pAU">
             <objects>
-                <viewController id="xK7-t9-cn3" customClass="GPLoginScreenViewController" sceneMemberID="viewController" storyboardIdentifier="MyLoginId">
+                <viewController id="xK7-t9-cn3" customClass="GPLoginScreenViewController" sceneMemberID="viewController" storyboardIdentifier="MyLoginScreen">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KIj-ul-fec"/>
                         <viewControllerLayoutGuide type="bottom" id="JEC-GS-Ash"/>

@@ -7,5 +7,7 @@ namespace TestDemo
 		{
 			
 		}
+
+		public UserInfoModel userInfo;
 	}
 }

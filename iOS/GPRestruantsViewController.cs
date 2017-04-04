@@ -31,13 +31,15 @@ namespace TestDemo.iOS
 
 		private void fetchRestruants() {
 			showLoading("Fetching Restruants ...");
-			restruantsAPI.getAllRestraunts((RestruantsResponse restruants, GPError arg2) => {
-				InvokeOnMainThread(()=>{
+
+			GPRestaurantsProvider.sharedProvider.getRestaurants((restaurants, error) => {
+				InvokeOnMainThread(() =>
+				{
 					hideLoading();
-					dataSource = new RestrunatsDatasource(restruants.restaurants);
+					dataSource = new RestrunatsDatasource(restaurants);
 					tblViewRestruants.Source = dataSource;
-					tblViewRestruants.ReloadData();	
-				});
+					tblViewRestruants.ReloadData();
+				});	 	
 			});
 		}
 	}

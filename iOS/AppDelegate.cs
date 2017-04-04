@@ -26,13 +26,13 @@ namespace TestDemo.iOS
 		{
 			App.Initialize();
 
+			DBManager.sharedManager.createDataBase();
 
 			// Select first UIViewController.
-			if (Settings.IsLoggedIn)
-				Window.RootViewController = UIStoryboard.FromName("Main", null)
-												 .InstantiateViewController("tabViewController");
+			if (AppRepository.sharedRepository.isUserLoggedIn())
+				moveToRestruantViewController();
 			else
-				Window.RootViewController = UIStoryboard.FromName("Main", null).InstantiateViewController("MyLoginId");
+				Window.RootViewController = UIStoryboard.FromName("Main", null).InstantiateViewController("MyLoginScreen");
 
 			return true;
 		}

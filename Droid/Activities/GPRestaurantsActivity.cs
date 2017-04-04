@@ -45,11 +45,13 @@ namespace TestDemo.Droid
 
 		private void fetchTheRestaurants() {
 			showLoadingIndicator("Fetching Restaurants...");
-			restruantsAPI.getAllRestraunts((RestruantsResponse restruants, GPError arg2) =>
+
+			GPRestaurantsProvider.sharedProvider.getRestaurants((restaurants, error) =>
 			{
-				this.RunOnUiThread(()=>{
+				this.RunOnUiThread(() =>
+				{
 					hideProgressDialog();
-					adapter = new GPRestaurantsRecyclerViewAdapter(restruants.restaurants, this);
+					adapter = new GPRestaurantsRecyclerViewAdapter(restaurants, this);
 					mRecyclerView.SetAdapter(adapter);
 					mRecyclerView.SetLayoutManager(new LinearLayoutManager(this));
 				});
