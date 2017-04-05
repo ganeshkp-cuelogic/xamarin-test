@@ -26,7 +26,7 @@ namespace TestDemo.iOS
 		{
 			EnsureInvokedOnMainThread(() =>
 			{
-				var alertView = new UIAlertView(title ?? string.Empty, message, null, "OK", "Cancel");
+				var alertView = new UIAlertView(title ?? string.Empty, message, null, "Yes", "No");
 				alertView.Clicked += (sender, e) =>
 				{
 					confirmationAction(e.ButtonIndex == 0);

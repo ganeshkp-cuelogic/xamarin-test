@@ -146,6 +146,10 @@
     <ImageAsset Include="Assets.xcassets\setting.imageset\settings.png" />
     <ImageAsset Include="Assets.xcassets\setting.imageset\settings%402x.png" />
     <ImageAsset Include="Assets.xcassets\setting.imageset\setting%402x.png" />
+    <ImageAsset Include="Assets.xcassets\power.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\power.imageset\power%402x.png" />
+    <ImageAsset Include="Assets.xcassets\back.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\back.imageset\back%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\MessageDialog.cs" />
@@ -188,6 +192,11 @@
       <DependentUpon>GPRestruantsViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Datasource\RestrunatsDatasource.cs" />
+    <Compile Include="GPSettingsViewController.cs" />
+    <Compile Include="GPSettingsViewController.designer.cs">
+      <DependentUpon>GPSettingsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\GPiOSLocationManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
@@ -206,6 +215,8 @@
     <Folder Include="Datasource\" />
     <Folder Include="Assets.xcassets\restr.imageset\" />
     <Folder Include="Assets.xcassets\setting.imageset\" />
+    <Folder Include="Assets.xcassets\power.imageset\" />
+    <Folder Include="Assets.xcassets\back.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="sdwebimage">

@@ -6,7 +6,6 @@ namespace TestDemo.iOS
 {
 	public partial class GPLoginScreenViewController : BaseViewController
     {
-
 		private MessageDialog dialog = new MessageDialog();
 
         public GPLoginScreenViewController (IntPtr handle) : base (handle)
@@ -88,12 +87,13 @@ namespace TestDemo.iOS
 		#endregion
 
 		#region Action Methods
-		partial void onClickOfLogin(UIButton sender)
-		{			
-			View.EndEditing(true);
-			if(validateFields()) {
 
-				if (NetworkReachabilityManager.isInternetAvailable()) {
+		partial void loginAction(UIKit.UIButton sender){
+			View.EndEditing(true);
+			if (validateFields())
+			{
+				if (NetworkReachabilityManager.isInternetAvailable())
+				{
 					showLoading("Signing in ...");
 					LoginAPIManager.
 								   SharedManager
@@ -111,11 +111,14 @@ namespace TestDemo.iOS
 											 }
 										 });
 
-				} else {
+				}
+				else
+				{
 					dialog.SendMessage("No internet connection available");
 				}
 			}
 		}
+
 		#endregion
 	}
 }

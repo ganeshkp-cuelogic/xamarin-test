@@ -26,9 +26,9 @@ namespace TestDemo.iOS
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField tfPassword { get; set; }
 
-        [Action ("onClickOfLogin:")]
+        [Action ("loginAction:")]
         [GeneratedCode ("iOS Designer", "1.0")]
-        partial void onClickOfLogin (UIKit.UIButton sender);
+        partial void loginAction (UIKit.UIButton sender);
 
         void ReleaseDesignerOutlets ()
         {

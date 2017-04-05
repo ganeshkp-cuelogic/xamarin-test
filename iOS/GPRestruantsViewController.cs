@@ -19,26 +19,23 @@ namespace TestDemo.iOS
 			base.ViewDidLoad();
 			configureUI();
 			fetchRestruants();
-
-			Title = "Restaurants";
-
-			addSettingsButton();
-
-			NavigationController.NavigationBar.TintColor = UIColor.Black;
+			//GPiOSLocationManager.sharedManager.StartLocationUpdates();
 		}
 
 		private void addSettingsButton() {
-			UIButton btnSettings = new UIButton(UIButtonType.Custom);
-			btnSettings.SetBackgroundImage(UIImage.FromBundle("setting"), UIControlState.Normal);
 			UIBarButtonItem rightBarButtonItem = new UIBarButtonItem(UIImage.FromBundle("setting"), UIBarButtonItemStyle.Plain, (sender, e) =>
 			{
-
+				GPSettingsViewController settingVC = (GPSettingsViewController)Storyboard.InstantiateViewController("GPSettingsViewController");
+				NavigationController.PushViewController(settingVC,true);
 			});
 
 			NavigationItem.SetRightBarButtonItem(rightBarButtonItem, true);
 		}
 
 		private void configureUI() {
+			Title = "Restaurants";
+			addSettingsButton();
+			NavigationController.NavigationBar.TintColor = UIColor.Black;
 			tblViewRestruants.Source = dataSource;
 			tblViewRestruants.ReloadData();
 		}    

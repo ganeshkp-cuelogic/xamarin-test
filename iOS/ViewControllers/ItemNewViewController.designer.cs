@@ -1,4 +1,4 @@
-﻿// WARNING
+// WARNING
 //
 // This file has been generated automatically by Xamarin Studio from the outlets and
 // actions declared in your storyboard file.
@@ -11,40 +11,37 @@ using UIKit;
 
 namespace TestDemo.iOS
 {
-	[Register("ItemNewViewController")]
-	partial class ItemNewViewController
-	{
-		[Outlet]
-		[GeneratedCode("iOS Designer", "1.0")]
-		UIKit.UIButton btnSaveItem { get; set; }
+    [Register ("ItemNewViewController")]
+    partial class ItemNewViewController
+    {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnSaveItem { get; set; }
 
-		[Outlet]
-		[GeneratedCode("iOS Designer", "1.0")]
-		UIKit.UITextField txtDesc { get; set; }
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField txtDesc { get; set; }
 
-		[Outlet]
-		[GeneratedCode("iOS Designer", "1.0")]
-		UIKit.UITextField txtTitle { get; set; }
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField txtTitle { get; set; }
 
-		void ReleaseDesignerOutlets()
-		{
-			if (btnSaveItem != null)
-			{
-				btnSaveItem.Dispose();
-				btnSaveItem = null;
-			}
+        void ReleaseDesignerOutlets ()
+        {
+            if (btnSaveItem != null) {
+                btnSaveItem.Dispose ();
+                btnSaveItem = null;
+            }
 
-			if (txtDesc != null)
-			{
-				txtDesc.Dispose();
-				txtDesc = null;
-			}
+            if (txtDesc != null) {
+                txtDesc.Dispose ();
+                txtDesc = null;
+            }
 
-			if (txtTitle != null)
-			{
-				txtTitle.Dispose();
-				txtTitle = null;
-			}
-		}
-	}
+            if (txtTitle != null) {
+                txtTitle.Dispose ();
+                txtTitle = null;
+            }
+        }
+    }
 }

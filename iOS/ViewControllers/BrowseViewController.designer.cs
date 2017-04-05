@@ -1,4 +1,4 @@
-﻿// WARNING
+// WARNING
 //
 // This file has been generated automatically by Xamarin Studio from the outlets and
 // actions declared in your storyboard file.
@@ -11,20 +11,19 @@ using UIKit;
 
 namespace TestDemo.iOS
 {
-	[Register("ItemsViewController")]
-	partial class BrowseViewController
-	{
-		[Outlet]
-		[GeneratedCode("iOS Designer", "1.0")]
-		UIKit.UIButton btnAddItem { get; set; }
+    [Register ("ItemsViewController")]
+    partial class BrowseViewController
+    {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnAddItem { get; set; }
 
-		void ReleaseDesignerOutlets()
-		{
-			if (btnAddItem != null)
-			{
-				btnAddItem.Dispose();
-				btnAddItem = null;
-			}
-		}
-	}
+        void ReleaseDesignerOutlets ()
+        {
+            if (btnAddItem != null) {
+                btnAddItem.Dispose ();
+                btnAddItem = null;
+            }
+        }
+    }
 }
