@@ -11,18 +11,22 @@ namespace TestDemo
 
 		public GPRestaurantsProvider()
 		{
+			
 		}
 
 		public void getRestaurants(Action<List<RestruantModel>, GPError> callback) {
+			GPError errorLocal = null;
 			if (NetworkReachabilityManager.isInternetAvailable()) {
-				restruantsAPI.getAllRestraunts((RestruantsResponse restruantResponse, GPError arg2) =>
+				restruantsAPI.getAllRestraunts((RestruantsResponse restruantResponse, GPError error) =>
 				{
-					//Save in DB
-					DBManager.sharedManager.saveRestaurantInfo(restruantResponse.restaurants);
-					callback(restruantResponse.restaurants, null);
+					if (error == null) {
+						//Save in DB
+						DBManager.sharedManager.saveRestaurantInfo(restruantResponse.restaurants);
+					}
+					callback(restruantResponse.restaurants, error);
 				});
 			} else {
-				callback(DBManager.sharedManager.getAllRestaurants(), null);
+				callback(DBManager.sharedManager.getAllRestaurants(), errorLocal);
 			}
 		} 
 	}

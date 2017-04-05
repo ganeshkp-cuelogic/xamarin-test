@@ -137,6 +137,7 @@
     <Compile Include="Activities\GPLoginActivity.cs" />
     <Compile Include="Activities\GPRestaurantsActivity.cs" />
     <Compile Include="Adapters\GPRestaurantsRecyclerViewAdapter.cs" />
+    <Compile Include="Activities\GPSettingsActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />
@@ -190,10 +191,11 @@
     <AndroidResource Include="Resources\drawable\facebook.png" />
     <AndroidResource Include="Resources\layout\activity_restaurants.axml" />
     <AndroidResource Include="Resources\layout\layout_row_restaurant.axml" />
-    <AndroidResource Include="Resources\drawable\setting.png" />
     <AndroidResource Include="Resources\menu\menu.xml" />
     <AndroidResource Include="Resources\drawable\actionbar.xml" />
     <AndroidResource Include="Resources\drawable\restr.jpg" />
+    <AndroidResource Include="Resources\layout\activity_settings.axml" />
+    <AndroidResource Include="Resources\drawable\setting.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="UniversalImageLoader">

@@ -19,8 +19,17 @@ namespace TestDemo
 			return DBManager.sharedManager.getUserInfo();
 		}
 
+		public void deleteUserInfo() {			
+			DBManager.sharedManager.deleteUserInfo();
+		}
+
 		public bool isUserLoggedIn() {
 			return getCurrentUserInfo() != null;
+		}
+
+		public string getAccesstoken()
+		{
+			return getCurrentUserInfo().apiKey;
 		}
 	}
 }

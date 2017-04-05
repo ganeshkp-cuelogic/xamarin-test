@@ -7,6 +7,7 @@ namespace TestDemo.iOS
 	public partial class GPRestruantsViewController : BaseViewController
     {
 		RestrunatsDatasource dataSource = new RestrunatsDatasource();
+		private MessageDialog dialog = new MessageDialog();
 
         public GPRestruantsViewController (IntPtr handle) : base (handle)
         {
@@ -43,17 +44,23 @@ namespace TestDemo.iOS
 		}    
 
 		private void fetchRestruants() {
-			showLoading("Fetching Restruants ...");
-
-			GPRestaurantsProvider.sharedProvider.getRestaurants((restaurants, error) => {
-				InvokeOnMainThread(() =>
+				showLoading("Fetching Restruants ...");
+				GPRestaurantsProvider.sharedProvider.getRestaurants((restaurants, error) =>
 				{
-					hideLoading();
-					dataSource = new RestrunatsDatasource(restaurants);
-					tblViewRestruants.Source = dataSource;
-					tblViewRestruants.ReloadData();
-				});	 	
-			});
+					InvokeOnMainThread(() =>
+					{
+						hideLoading();
+						if (error == null) {
+							dataSource = new RestrunatsDatasource(restaurants);
+							tblViewRestruants.Source = dataSource;
+							tblViewRestruants.ReloadData();
+						} else
+						{
+							dialog.SendMessage(error.Message);
+						}
+					});
+				});
+
 		}
 	}
 }

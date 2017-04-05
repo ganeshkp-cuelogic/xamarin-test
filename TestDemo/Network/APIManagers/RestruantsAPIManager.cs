@@ -17,7 +17,10 @@ namespace TestDemo
 				TypeNameHandling = TypeNameHandling.Objects
 			};
 
-			RestruantsResponse restaurantResponse = JsonConvert.DeserializeObject<RestruantsResponse> (apiResult.ResponseJSON, settings);
+			RestruantsResponse restaurantResponse = null;
+			if(apiResult.Error == null) {
+				restaurantResponse = JsonConvert.DeserializeObject<RestruantsResponse>(apiResult.ResponseJSON, settings);
+			}
 			callback(restaurantResponse, apiResult.Error);
 		}
 	}

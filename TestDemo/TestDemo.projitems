@@ -55,6 +55,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IDBManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\NetworkReachabilityManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Providers\GPRestaurantsProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\SettingsModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Utils\" />

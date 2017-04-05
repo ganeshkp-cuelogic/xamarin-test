@@ -31,6 +31,8 @@ namespace TestDemo.Droid
 			base.OnCreate(savedInstanceState);
 			initUI();
 			fetchTheRestaurants();
+
+			SupportActionBar.SetDisplayHomeAsUpEnabled(false);
 		}
 
 		public override bool OnCreateOptionsMenu(IMenu menu)
@@ -42,7 +44,9 @@ namespace TestDemo.Droid
 		public override bool OnOptionsItemSelected(IMenuItem item)
 		{
 			if(item.ItemId == Resource.Id.setting) {
-				
+				Intent newIntent;
+				newIntent = new Intent(this, typeof(GPSettingsActivity));
+				StartActivity(newIntent);
 			}
 			return true;
 		}
@@ -56,20 +60,22 @@ namespace TestDemo.Droid
 			ImageLoader.Instance.Init(config);
 		}
 
-		private void fetchTheRestaurants() {
-			showLoadingIndicator("Fetching Restaurants...");
-
-			GPRestaurantsProvider.sharedProvider.getRestaurants((restaurants, error) =>
-			{
-				this.RunOnUiThread(() =>
+		private void fetchTheRestaurants() {			
+				showLoadingIndicator("Fetching Restaurants...");
+				GPRestaurantsProvider.sharedProvider.getRestaurants((restaurants, error) =>
 				{
-					hideProgressDialog();
-					adapter = new GPRestaurantsRecyclerViewAdapter(restaurants, this);
-					mRecyclerView.SetAdapter(adapter);
-					mRecyclerView.SetLayoutManager(new LinearLayoutManager(this));
-				});
-			});
+					this.RunOnUiThread(() =>
+					{						
+						hideProgressDialog();
+						if(error == null) {
+							adapter = new GPRestaurantsRecyclerViewAdapter(restaurants, this);
+							mRecyclerView.SetAdapter(adapter);
+							mRecyclerView.SetLayoutManager(new LinearLayoutManager(this));
+						} else {
+							mMessageDialog.SendMessage(error.Message);
+						}
+					});
+				}); 			
 		}
-
 	}
 }

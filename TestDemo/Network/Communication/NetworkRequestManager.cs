@@ -56,7 +56,9 @@ namespace TestDemo
 			var uri = new Uri(url);
 
 			HttpResponseMessage response = null;
-			client.DefaultRequestHeaders.Add("user-key","c8738438ad7f78bffe17ef6fe27c95b4");
+			client = new HttpClient();
+			client.MaxResponseContentBufferSize = 2560000;
+			client.DefaultRequestHeaders.Add("user-key","64d1b8c4c768ac50faa034a333f6e9d1");
 			response = await client.GetAsync(uri);
 			var contentBody = await response.Content.ReadAsStringAsync();
 
@@ -67,12 +69,9 @@ namespace TestDemo
 			else {
 				apiResult.Error = new GPError(Messages.API_FAILURE_MESSAGE);
 			}
-
 			return apiResult;
 		}
-
 		#endregion
-
 	}
 
 

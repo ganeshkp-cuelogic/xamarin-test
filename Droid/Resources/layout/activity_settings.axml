@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ActionButton" />
+    </android.support.design.widget.AppBarLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="20dp">
+        <CheckedTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkedTvPushNotifications"
+            android:clickable="true"
+            android:focusable="true"
+            android:textSize="20sp"
+            android:text="Push Notifications"
+            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+            android:checked="false" />
+        <CheckedTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="10dp"
+            android:id="@+id/checkedTvLocations"
+            android:textSize="20sp"
+            android:text="Restaurants near around you"
+            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+            android:checked="false" />
+        <CheckedTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="10dp"
+            android:id="@+id/checkedTvOffline"
+            android:textSize="20sp"
+            android:text="Offline mode"
+            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+            android:checked="false" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnLogout"
+            android:layout_marginTop="30dp"
+            android:padding="7dp"
+            android:text="Logout" />
+    </LinearLayout>
+</LinearLayout>

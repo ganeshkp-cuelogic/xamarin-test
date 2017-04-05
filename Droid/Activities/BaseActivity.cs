@@ -12,15 +12,17 @@ namespace TestDemo.Droid
 		private ProgressDialog mProgressDialog;
 		protected IMessageDialog mMessageDialog = new MessageDialog();
 
+		protected Android.Support.V7.Widget.Toolbar toolBar;
+
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 			SetContentView(LayoutResource);
-			Toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-			if (Toolbar != null)
+			toolBar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+			if (toolBar != null)
 			{
-				SetSupportActionBar(Toolbar);
-				SupportActionBar.SetDisplayHomeAsUpEnabled(false);
+				SetSupportActionBar(toolBar);
+				SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 				SupportActionBar.SetHomeButtonEnabled(true);
 			}
 		}

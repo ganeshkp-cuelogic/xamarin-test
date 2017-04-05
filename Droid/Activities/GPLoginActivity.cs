@@ -40,7 +40,7 @@ namespace TestDemo.Droid
 			mLoginButton = (TextView)FindViewById(Resource.Id.tvLogin);
 			mLoginButton.Click += (sender, e) =>
 			{
-				if(validateFields()) {
+				if(validateFields()) {					
 					showLoadingIndicator("Signing in ...");
 					LoginAPIManager.
 							   SharedManager
@@ -48,7 +48,7 @@ namespace TestDemo.Droid
 									 {
 										hideProgressDialog();
 										 if (error == null) {
-											mMessageDialog.SendMessage("Login successfull", "Message");
+											//mMessageDialog.SendMessage("Login successfull", "Message");
 											moveToMainScreen();
 										 } else {
 											 mMessageDialog.SendMessage(error.Message, "Alert");
