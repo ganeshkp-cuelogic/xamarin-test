@@ -59,6 +59,7 @@
             android:id="@+id/btnLogout"
             android:layout_marginTop="30dp"
             android:padding="7dp"
+            android:visibility="gone"
             android:text="Logout" />
     </LinearLayout>
 </LinearLayout>

@@ -29,21 +29,21 @@ namespace TestDemo.Droid
 			base.OnCreate(savedInstanceState);
 			initUI();
 			populateSettings();
-
-			toolBar.SetNavigationIcon(Resource.Id.home);
-			//toolBar.SetNavigationOnClickListener(this);
 		}
 
 		public override bool OnCreateOptionsMenu(IMenu menu)
 		{
+			MenuInflater.Inflate(Resource.Menu.setting_screen_menu, menu);
 			return true;
 		}
 
 		public override bool OnOptionsItemSelected(IMenuItem item)
 		{
-			if(item.ItemId == Resource.Id.home) {
+			if(item.ItemId == Android.Resource.Id.Home) {
 				saveSettings();
 				Finish();
+			} else if(item.ItemId == Resource.Id.settings_logout) {
+				showConfirmation();
 			}
 			return true;
 		}

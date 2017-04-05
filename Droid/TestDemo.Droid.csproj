@@ -196,6 +196,10 @@
     <AndroidResource Include="Resources\drawable\restr.jpg" />
     <AndroidResource Include="Resources\layout\activity_settings.axml" />
     <AndroidResource Include="Resources\drawable\setting.png" />
+    <AndroidResource Include="Resources\drawable\back.png" />
+    <AndroidResource Include="Resources\menu\setting_screen_menu.xml" />
+    <AndroidResource Include="Resources\drawable\logout.png" />
+    <AndroidResource Include="Resources\drawable\power.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="UniversalImageLoader">

@@ -40,20 +40,27 @@ namespace TestDemo.Droid
 			mLoginButton = (TextView)FindViewById(Resource.Id.tvLogin);
 			mLoginButton.Click += (sender, e) =>
 			{
-				if(validateFields()) {					
-					showLoadingIndicator("Signing in ...");
-					LoginAPIManager.
-							   SharedManager
-					               .doLogin(LoginRequestModel.requestModel(mEditTextEmail.Text, mEditTextPassword.Text), (LoginResponse resposne, GPError error) =>
-									 {
-										hideProgressDialog();
-										 if (error == null) {
-											//mMessageDialog.SendMessage("Login successfull", "Message");
-											moveToMainScreen();
-										 } else {
-											 mMessageDialog.SendMessage(error.Message, "Alert");
-										 }
-									 });	
+				if(validateFields()) {
+					if(NetworkReachabilityManager.isInternetAvailable()) {
+						showLoadingIndicator("Signing in ...");
+						LoginAPIManager.
+								   SharedManager
+									   .doLogin(LoginRequestModel.requestModel(mEditTextEmail.Text, mEditTextPassword.Text), (LoginResponse resposne, GPError error) =>
+										 {
+											 hideProgressDialog();
+											 if (error == null)
+											 {
+											 //mMessageDialog.SendMessage("Login successfull", "Message");
+											 moveToMainScreen();
+											 }
+											 else
+											 {
+												 mMessageDialog.SendMessage(error.Message, "Alert");
+											 }
+										 });
+					} else {
+						mMessageDialog.SendMessage("No internet connection available");
+					}
 				}				
 			};
 		}

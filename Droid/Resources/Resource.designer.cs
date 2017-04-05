@@ -2072,52 +2072,61 @@ namespace TestDemo.Droid
 			public const int actionbar = 2130837587;
 			
 			// aapt resource value: 0x7f020054
-			public const int background_splash = 2130837588;
+			public const int back = 2130837588;
 			
 			// aapt resource value: 0x7f020055
-			public const int circle_background = 2130837589;
+			public const int background_splash = 2130837589;
 			
 			// aapt resource value: 0x7f020056
-			public const int design_fab_background = 2130837590;
+			public const int circle_background = 2130837590;
 			
 			// aapt resource value: 0x7f020057
-			public const int design_ic_visibility = 2130837591;
+			public const int design_fab_background = 2130837591;
 			
 			// aapt resource value: 0x7f020058
-			public const int design_snackbar_background = 2130837592;
+			public const int design_ic_visibility = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int facebook = 2130837593;
+			public const int design_snackbar_background = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int google = 2130837594;
+			public const int facebook = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int heroplaceholder = 2130837595;
+			public const int google = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int ic_save = 2130837596;
+			public const int heroplaceholder = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int navigation_empty_icon = 2130837597;
-			
-			// aapt resource value: 0x7f020063
-			public const int notification_template_icon_bg = 2130837603;
+			public const int ic_save = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int profile_generic = 2130837598;
+			public const int logout = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int restr = 2130837599;
+			public const int navigation_empty_icon = 2130837599;
+			
+			// aapt resource value: 0x7f020066
+			public const int notification_template_icon_bg = 2130837606;
 			
 			// aapt resource value: 0x7f020060
-			public const int rounder_corner = 2130837600;
+			public const int power = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int setting = 2130837601;
+			public const int profile_generic = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int xamarin_logo = 2130837602;
+			public const int restr = 2130837602;
+			
+			// aapt resource value: 0x7f020063
+			public const int rounder_corner = 2130837603;
+			
+			// aapt resource value: 0x7f020064
+			public const int setting = 2130837604;
+			
+			// aapt resource value: 0x7f020065
+			public const int xamarin_logo = 2130837605;
 			
 			static Drawable()
 			{
@@ -2393,8 +2402,8 @@ namespace TestDemo.Droid
 			// aapt resource value: 0x7f0a009e
 			public const int media_actions = 2131361950;
 			
-			// aapt resource value: 0x7f0a00a9
-			public const int menu_edit = 2131361961;
+			// aapt resource value: 0x7f0a00aa
+			public const int menu_edit = 2131361962;
 			
 			// aapt resource value: 0x7f0a0037
 			public const int middle = 2131361847;
@@ -2509,6 +2518,9 @@ namespace TestDemo.Droid
 			
 			// aapt resource value: 0x7f0a00a8
 			public const int setting = 2131361960;
+			
+			// aapt resource value: 0x7f0a00a9
+			public const int settings_logout = 2131361961;
 			
 			// aapt resource value: 0x7f0a0056
 			public const int shortcut = 2131361878;
@@ -2907,7 +2919,10 @@ namespace TestDemo.Droid
 			public const int menu = 2131623936;
 			
 			// aapt resource value: 0x7f0e0001
-			public const int top_menus = 2131623937;
+			public const int setting_screen_menu = 2131623937;
+			
+			// aapt resource value: 0x7f0e0002
+			public const int top_menus = 2131623938;
 			
 			static Menu()
 			{

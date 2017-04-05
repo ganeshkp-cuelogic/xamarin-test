@@ -92,19 +92,28 @@ namespace TestDemo.iOS
 		{			
 			View.EndEditing(true);
 			if(validateFields()) {
-				showLoading("Signing in ...");
-				LoginAPIManager.
-				               SharedManager
-				               .doLogin(LoginRequestModel.requestModel(tfEmailID.Text, tfPassword.Text), (LoginResponse resposne, GPError error) =>
-									 {
-					hideLoading();
-					if(error == null) {
-						dialog.SendMessage("Login successfull", "Message");
-						moveToRestruantsScreen();
-					} else {						
-						dialog.SendMessage(error.Message, "Alert");
-					}				 							
-				 });
+
+				if (NetworkReachabilityManager.isInternetAvailable()) {
+					showLoading("Signing in ...");
+					LoginAPIManager.
+								   SharedManager
+								   .doLogin(LoginRequestModel.requestModel(tfEmailID.Text, tfPassword.Text), (LoginResponse resposne, GPError error) =>
+										 {
+											 hideLoading();
+											 if (error == null)
+											 {
+												 dialog.SendMessage("Login successfull", "Message");
+												 moveToRestruantsScreen();
+											 }
+											 else
+											 {
+												 dialog.SendMessage(error.Message, "Alert");
+											 }
+										 });
+
+				} else {
+					dialog.SendMessage("No internet connection available");
+				}
 			}
 		}
 		#endregion
