@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<style name="ActionButton" parent="@android:style/Widget.ActionButton">
+    <item name="android:drawablePadding">10dp</item>
+</style>

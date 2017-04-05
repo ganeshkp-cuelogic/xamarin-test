@@ -2,13 +2,11 @@ using Foundation;
 using System;
 using UIKit;
 
-
 namespace TestDemo.iOS
 {
 	public partial class GPRestruantsViewController : BaseViewController
     {
 		RestrunatsDatasource dataSource = new RestrunatsDatasource();
-		IRestruantsAPI restruantsAPI = new RestruantsAPIManager();
 
         public GPRestruantsViewController (IntPtr handle) : base (handle)
         {
@@ -22,6 +20,21 @@ namespace TestDemo.iOS
 			fetchRestruants();
 
 			Title = "Restaurants";
+
+			addSettingsButton();
+
+			NavigationController.NavigationBar.TintColor = UIColor.Black;
+		}
+
+		private void addSettingsButton() {
+			UIButton btnSettings = new UIButton(UIButtonType.Custom);
+			btnSettings.SetBackgroundImage(UIImage.FromBundle("setting"), UIControlState.Normal);
+			UIBarButtonItem rightBarButtonItem = new UIBarButtonItem(UIImage.FromBundle("setting"), UIBarButtonItemStyle.Plain, (sender, e) =>
+			{
+
+			});
+
+			NavigationItem.SetRightBarButtonItem(rightBarButtonItem, true);
 		}
 
 		private void configureUI() {

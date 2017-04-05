@@ -24,7 +24,6 @@ namespace TestDemo.Droid
 
 		RecyclerView mRecyclerView;
 		GPRestaurantsRecyclerViewAdapter adapter;
-		IRestruantsAPI restruantsAPI = new RestruantsAPIManager();
 
 		protected override int LayoutResource => Resource.Layout.activity_restaurants;
 		protected override void OnCreate(Bundle savedInstanceState)
@@ -32,6 +31,20 @@ namespace TestDemo.Droid
 			base.OnCreate(savedInstanceState);
 			initUI();
 			fetchTheRestaurants();
+		}
+
+		public override bool OnCreateOptionsMenu(IMenu menu)
+		{
+			MenuInflater.Inflate(Resource.Menu.menu, menu);
+			return true;
+		}
+
+		public override bool OnOptionsItemSelected(IMenuItem item)
+		{
+			if(item.ItemId == Resource.Id.setting) {
+				
+			}
+			return true;
 		}
 
 		private void initUI() {

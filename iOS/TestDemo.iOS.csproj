@@ -18,7 +18,7 @@
     <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer: Rahul Bangde (QR9N38U4L4)</CodesignKey>
+    <CodesignKey>iPhone Developer</CodesignKey>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchDebug>true</MtouchDebug>
     <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
@@ -29,7 +29,7 @@
     <MtouchArch>i386, x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision>14956dca-e7fd-46e3-bd59-66dff7f5f7bc</CodesignProvision>
+    <CodesignProvision></CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>pdbonly</DebugType>
@@ -142,6 +142,10 @@
     <ImageAsset Include="Resources\Assets.xcassets\google.imageset\google%402x.png" />
     <ImageAsset Include="Assets.xcassets\restr.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\restr.imageset\restr%402x.png" />
+    <ImageAsset Include="Assets.xcassets\setting.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\setting.imageset\settings.png" />
+    <ImageAsset Include="Assets.xcassets\setting.imageset\settings%402x.png" />
+    <ImageAsset Include="Assets.xcassets\setting.imageset\setting%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\MessageDialog.cs" />
@@ -201,6 +205,7 @@
     <Folder Include="Custom Views\" />
     <Folder Include="Datasource\" />
     <Folder Include="Assets.xcassets\restr.imageset\" />
+    <Folder Include="Assets.xcassets\setting.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="sdwebimage">

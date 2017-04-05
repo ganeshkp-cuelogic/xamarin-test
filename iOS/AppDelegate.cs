@@ -32,7 +32,7 @@ namespace TestDemo.iOS
 			if (AppRepository.sharedRepository.isUserLoggedIn())
 				moveToRestruantViewController();
 			else
-				Window.RootViewController = UIStoryboard.FromName("Main", null).InstantiateViewController("MyLoginScreen");
+				Window.RootViewController = UIStoryboard.FromName("Main", null).InstantiateViewController("MyLoginScreenID");
 
 			return true;
 		}

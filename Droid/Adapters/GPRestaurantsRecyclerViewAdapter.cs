@@ -38,7 +38,11 @@ namespace TestDemo.Droid
 			myHolder.tvCost.Text =  "Average cost for two : " + restaurant.restaurant.average_cost_for_two;
 			myHolder.tvCuisine.Text = (restaurant.restaurant.cuisines == "") ? "NA": restaurant.restaurant.cuisines;
 
-			DisplayImageOptions options = new DisplayImageOptions.Builder().ShowImageForEmptyUri(Resource.Drawable.heroplaceholder).Build();
+			DisplayImageOptions options = new DisplayImageOptions.Builder().
+			                                                     ShowImageForEmptyUri(Resource.Drawable.restr)
+			                                                     .CacheOnDisk(true)
+			                                                     .CacheInMemory(true).
+			                                                     Build();
 
 			// Get singleton instance
 			UniversalImageLoader.Core.ImageLoader imageLoader = ImageLoader.Instance;
