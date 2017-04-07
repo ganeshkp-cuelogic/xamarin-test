@@ -30,6 +30,14 @@ namespace TestDemo.iOS
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void loginAction (UIKit.UIButton sender);
 
+        [Action ("onClickOfFacebook:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void onClickOfFacebook (UIKit.UIButton sender);
+
+        [Action ("onClickOfGoogle:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void onClickOfGoogle (UIKit.UIButton sender);
+
         void ReleaseDesignerOutlets ()
         {
             if (btnLogin != null) {

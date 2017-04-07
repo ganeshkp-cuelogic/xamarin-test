@@ -1,6 +1,8 @@
 ﻿#define AZURE
 
+using Facebook.CoreKit;
 using Foundation;
+using Google.SignIn;
 using UIKit;
 
 namespace TestDemo.iOS
@@ -11,6 +13,8 @@ namespace TestDemo.iOS
 	public class AppDelegate : UIApplicationDelegate
 	{
 		// class-level declarations
+		string appId = "425601651122473";
+		string appName = "Ganesh";
 
 		public static AppDelegate applicationDelegate() {
 			return UIApplication.SharedApplication.Delegate as AppDelegate;
@@ -26,6 +30,14 @@ namespace TestDemo.iOS
 		{
 			App.Initialize();
 
+		//	var googleServiceDictionary = NSDictionary.FromFile("GoogleService-Info.plist");
+			SignIn.SharedInstance.ClientID = "628615954631-1q16gnrg60dne98hhg7rnlpb8ii3e76s.apps.googleusercontent.com";
+
+			// This is false by default,
+			// If you set true, you can handle the user profile info once is logged into FB with the Profile.Notifications.ObserveDidChange notification,
+			// If you set false, you need to get the user Profile info by hand with a GraphRequest
+			Profile.EnableUpdatesOnAccessTokenChange(true);
+
 			DBManager.sharedManager.createDataBase();
 
 			// Select first UIViewController.
@@ -35,6 +47,13 @@ namespace TestDemo.iOS
 				moveToLoginScreen();
 
 			return true;
+		}
+
+		// For iOS 9 or newer
+		public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+		{
+			var openUrlOptions = new UIApplicationOpenUrlOptions(options);
+			return SignIn.SharedInstance.HandleUrl(url, openUrlOptions.SourceApplication, openUrlOptions.Annotation);
 		}
 
 		public override void OnResignActivation(UIApplication application)
@@ -75,7 +94,7 @@ namespace TestDemo.iOS
 
 		public void moveToLoginScreen()
 		{
-			Window.RootViewController = UIStoryboard.FromName("Main", null).InstantiateViewController("MyLoginScreen");
+			Window.RootViewController = UIStoryboard.FromName("Main", null).InstantiateViewController("MyLoginScreenID");
 		}
 
 	}

@@ -433,7 +433,7 @@
         <!--Login Screen View Controller-->
         <scene sceneID="alb-PX-pAU">
             <objects>
-                <viewController storyboardIdentifier="MyLoginScreen" id="xtioK7-t9-cn3" customClass="GPLoginScreenViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyLoginScreenID" id="xtioK7-t9-cn3" customClass="GPLoginScreenViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KIj-ul-fec"/>
                         <viewControllerLayoutGuide type="bottom" id="JEC-GS-Ash"/>
@@ -503,6 +503,9 @@
                                                             <constraint firstAttribute="height" constant="52" id="gJd-DC-6iz"/>
                                                         </constraints>
                                                         <state key="normal" backgroundImage="facebook"/>
+                                                        <connections>
+                                                            <action selector="onClickOfFacebook:" destination="xtioK7-t9-cn3" id="2414" eventType="touchUpOutside"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMB-DY-wuD" misplaced="YES">
                                                         <rect key="frame" x="166.5" y="218" width="52" height="52"/>
@@ -511,6 +514,9 @@
                                                             <constraint firstAttribute="height" constant="52" id="Ifj-tC-Jit"/>
                                                         </constraints>
                                                         <state key="normal" backgroundImage="google"/>
+                                                        <connections>
+                                                            <action selector="onClickOfGoogle:" destination="xtioK7-t9-cn3" id="2415" eventType="touchUpInside"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not a Member Yet ?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w94-2z-NqB" misplaced="YES">
                                                         <rect key="frame" x="53" y="298" width="135" height="21"/>
