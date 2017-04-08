@@ -1,11 +1,12 @@
 using Foundation;
 using System;
 using UIKit;
+using Google.SignIn;
 
 namespace TestDemo.iOS
 {
-	public partial class GPLoginScreenViewController : BaseViewController
-    {
+	public partial class GPLoginScreenViewController : BaseViewController, ISignInDelegate, ISignInUIDelegate
+	{
 		private MessageDialog dialog = new MessageDialog();
 
         public GPLoginScreenViewController (IntPtr handle) : base (handle)
@@ -119,6 +120,60 @@ namespace TestDemo.iOS
 			}
 		}
 
+		partial void onClickOfFacebook(UIButton sender)
+		{
+		}
+
+		partial void onClickOfGoogle(UIButton sender)
+		{
+			// Assign the SignIn Delegates to receive callbacks
+			SignIn.SharedInstance.UIDelegate = this;
+			SignIn.SharedInstance.Delegate = this;
+			SignIn.SharedInstance.SignInUser();
+
+		}
+
 		#endregion
+
+		#region Google Sign in delegate methods
+		public void DidSignIn(SignIn signIn, GoogleUser user, NSError error)
+		{
+			if (user != null && error == null)
+			{
+				dialog.SendMessage("Your google email is - " + user.Profile.Email + "\n \n Access Token - " + user.Authentication.AccessToken);
+				UserInfoModel userInfoModel = new UserInfoModel();
+				userInfoModel.apiKey = user.Profile.Email;
+				userInfoModel.email = user.Profile.Email;
+				userInfoModel.name = user.Profile.Name;
+				userInfoModel.createdAt = "";
+				LoginResponse loginResponse = new LoginResponse();
+				loginResponse.userInfo = userInfoModel;
+
+				//Save user info
+				AppRepository.sharedRepository.saveUserInfo(userInfoModel);
+				moveToRestruantsScreen();
+
+			}
+		}
+		#endregion
+
+		[Export("signInWillDispatch:error:")]
+		public void WillDispatch(SignIn signIn, NSError error)
+		{
+
+		}
+		[Export("signIn:presentViewController:")]
+		public void PresentViewController(SignIn signIn, UIViewController viewController)
+		{
+			PresentViewController(viewController, true, null);
+		}
+
+		[Export("signIn:dismissViewController:")]
+		public void DismissViewController(SignIn signIn, UIViewController viewController)
+		{
+			DismissViewController(true, null);
+		}
+
+
 	}
 }

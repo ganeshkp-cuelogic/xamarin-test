@@ -1,6 +1,7 @@
 ﻿#define AZURE
 
 using Foundation;
+using Google.SignIn;
 using UIKit;
 
 namespace TestDemo.iOS
@@ -26,6 +27,8 @@ namespace TestDemo.iOS
 		{
 			App.Initialize();
 
+			SignIn.SharedInstance.ClientID = "628615954631-1q16gnrg60dne98hhg7rnlpb8ii3e76s.apps.googleusercontent.com";
+
 			DBManager.sharedManager.createDataBase();
 
 			// Select first UIViewController.
@@ -35,6 +38,13 @@ namespace TestDemo.iOS
 				moveToLoginScreen();
 
 			return true;
+		}
+
+		// For iOS 9 or newer
+		public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+		{
+			var openUrlOptions = new UIApplicationOpenUrlOptions(options);
+			return SignIn.SharedInstance.HandleUrl(url, openUrlOptions.SourceApplication, openUrlOptions.Annotation);
 		}
 
 		public override void OnResignActivation(UIApplication application)
@@ -68,14 +78,15 @@ namespace TestDemo.iOS
 			// Called when the application is about to terminate. Save data, if needed. See also DidEnterBackground.
 		}
 
+
 		public void moveToRestruantViewController() {
-			UINavigationController navigationController = new UINavigationController(UIStoryboard.FromName("Main", null).InstantiateViewController("GPRestruantsViewControllerID"));
+			UINavigationController navigationController = new UINavigationController(UIStoryboard.FromName("Main", null).InstantiateViewController("GPRestruants"));
 			Window.RootViewController = navigationController;
 		}
 
 		public void moveToLoginScreen()
 		{
-			Window.RootViewController = UIStoryboard.FromName("Main", null).InstantiateViewController("MyLoginScreen");
+			Window.RootViewController = UIStoryboard.FromName("Main", null).InstantiateViewController("MyLoginScreenID");
 		}
 
 	}

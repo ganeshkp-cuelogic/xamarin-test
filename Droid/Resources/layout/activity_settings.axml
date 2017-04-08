@@ -39,7 +39,7 @@
             android:layout_marginTop="10dp"
             android:id="@+id/checkedTvLocations"
             android:textSize="20sp"
-            android:text="Restaurants near around you"
+            android:text="Restaurants around you"
             android:checkMark="?android:attr/listChoiceIndicatorMultiple"
             android:checked="false" />
         <CheckedTextView
@@ -52,6 +52,7 @@
             android:textSize="20sp"
             android:text="Offline mode"
             android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+			tools:visibility="invisible"
             android:checked="false" />
         <Button
             android:layout_width="wrap_content"

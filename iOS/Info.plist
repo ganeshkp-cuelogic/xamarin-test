@@ -48,5 +48,20 @@
 	<string>Can we have you location</string>
 	<key>NSLocationUsageDescription</key>
 	<string>We need your location</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.628615954631-1q16gnrg60dne98hhg7rnlpb8ii3e76s</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.myblackbean.testdemo</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

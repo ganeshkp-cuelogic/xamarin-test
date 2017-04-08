@@ -10,6 +10,7 @@ namespace TestDemo.iOS
 		private MessageDialog dialog = new MessageDialog();
 
 		Tuple<double, double> currentLocation;
+		private bool lastGPSStatus = DBManager.sharedManager.getCurrentSetting().location;
 
         public GPRestruantsViewController (IntPtr handle) : base (handle)
         {
@@ -20,20 +21,34 @@ namespace TestDemo.iOS
 		{
 			base.ViewDidLoad();
 			configureUI();
+			if(lastGPSStatus) {
+				fetchUsingCurrentLocation();
+			} else {
+				fetchRestruants(currentLocation);	
+			}
 		}
 
 		public override void ViewWillAppear(bool animated)
 		{
 			base.ViewWillAppear(animated);
-			if (DBManager.sharedManager.getCurrentSetting().location) {
-				GPiOSLocationManager.sharedManager.getCurrentLocation((Tuple<double, double> location) => {		
-					Console.WriteLine(location);
-					currentLocation = location;
+			if(lastGPSStatus != DBManager.sharedManager.getCurrentSetting().location) {
+				lastGPSStatus = DBManager.sharedManager.getCurrentSetting().location;
+				if (lastGPSStatus) {
+					fetchUsingCurrentLocation();
+				} else {
+					currentLocation = null;
 					fetchRestruants(currentLocation);
-				});
-			} else {
-				fetchRestruants(null);
+				}
 			}
+		}
+
+		private void fetchUsingCurrentLocation() {
+			GPiOSLocationManager.sharedManager.getCurrentLocation((Tuple<double, double> location) =>
+					{
+						Console.WriteLine(location);
+						currentLocation = location;
+						fetchRestruants(currentLocation);
+					});
 		}
 
 		private void addSettingsButton() {
