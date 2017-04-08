@@ -13,6 +13,8 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.V7.Widget;
 using UniversalImageLoader.Core;
+using Android.Support.Design.Widget;
+using Android;
 
 namespace TestDemo.Droid
 {
@@ -26,6 +28,17 @@ namespace TestDemo.Droid
 		Tuple<double, double> location;
 
 		GPAndroidLocationManager locationManager;
+		private bool lastGPSStatus = DBManager.sharedManager.getCurrentSetting().location;
+
+		Snackbar snackbar;
+
+		readonly string[] PermissionsLocation =
+		{
+	 		 Manifest.Permission.AccessCoarseLocation,
+	 		 Manifest.Permission.AccessFineLocation
+		};
+
+		const int RequestLocationId = 0;
 
 		protected override int LayoutResource => Resource.Layout.activity_restaurants;
 		protected override void OnCreate(Bundle savedInstanceState)
@@ -33,25 +46,83 @@ namespace TestDemo.Droid
 			base.OnCreate(savedInstanceState);
 			initUI();
 			SupportActionBar.SetDisplayHomeAsUpEnabled(false);
+
+			if (lastGPSStatus) {
+				fetchUsingCurrentLocation();
+			} else {
+				fetchTheRestaurants(location);
+			}
 		}
 
 		protected override void OnResume()
 		{
 			base.OnResume();
-			if (DBManager.sharedManager.getCurrentSetting().location)
-			{
-				showLoadingIndicator("Fetching current location ...");
-				locationManager = new GPAndroidLocationManager(this);
-				locationManager.getCurrentLocation((Tuple<double, double> location) =>
-				{
-					this.location = location;
-					hideProgressDialog();
+
+			if (lastGPSStatus != DBManager.sharedManager.getCurrentSetting().location) {
+				lastGPSStatus = DBManager.sharedManager.getCurrentSetting().location;
+				if (lastGPSStatus) {
+					fetchUsingCurrentLocation();
+				} else {
+					location = null;
 					fetchTheRestaurants(location);
-				});
+				}
 			}
-			else
+		}
+
+		protected override void OnPause()
+		{
+			base.OnPause();
+			if (snackbar != null)
 			{
-				fetchTheRestaurants(null);
+				snackbar.Dismiss();
+			}
+		}
+
+		private void fetchUsingCurrentLocation() {
+			showLoadingIndicator("Fetching current location ...");
+			locationManager = new GPAndroidLocationManager(this);
+			locationManager.getCurrentLocation((Tuple<double, double> location) =>
+			{
+				this.location = location;
+				hideProgressDialog();
+				fetchTheRestaurants(location);
+			},(bool needPermission) => {
+				if(needPermission) {
+					hideProgressDialog();
+
+					//Explain to the user why we need to read the contacts
+					snackbar = Snackbar.Make(mRecyclerView, "Location access is required to show restaurants nearby.", Snackbar.LengthIndefinite)
+					        .SetAction("OK", v => {								
+								RequestPermissions(PermissionsLocation, RequestLocationId);
+					});		
+					snackbar.Show();
+				}
+			});
+		}
+
+		public override async void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+		{
+			switch (requestCode)
+			{
+				case RequestLocationId:
+					{
+						if (grantResults[0] == Permission.Granted)
+						{
+							//Permission granted
+							var snack = Snackbar.Make(mRecyclerView, "Location permission is available, getting lat/long.", Snackbar.LengthShort);
+							snack.Show();
+							showLoadingIndicator("Fetching current location ...");
+							locationManager.permissionGivenByUser();
+						}
+						else
+						{
+							//Permission Denied :(
+							//Disabling location functionality
+							var snack = Snackbar.Make(mRecyclerView, "Location permission is denied.", Snackbar.LengthShort);
+							snack.Show();
+						}
+					}
+					break;
 			}
 		}
 
