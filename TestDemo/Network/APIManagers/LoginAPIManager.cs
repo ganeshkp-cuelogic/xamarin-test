@@ -28,13 +28,15 @@ namespace TestDemo
 			String strInputJson = JsonConvert.SerializeObject(loginRequest);
 
 			APIResult result = await NetworkRequestManager.Sharedmanager.sendPostRequest(strInputJson, completeURL);
-			UserInfoModel userInfoModel = JsonConvert.DeserializeObject<UserInfoModel>(result.ResponseJSON);
 			LoginResponse loginResponse = new LoginResponse();
-			loginResponse.userInfo = userInfoModel;
-
-			//Save user info
-			AppRepository.sharedRepository.saveUserInfo(userInfoModel);
-
+			if(result.Error == null) {				
+				UserInfoModel userInfoModel = JsonConvert.DeserializeObject<UserInfoModel>(result.ResponseJSON);
+				loginResponse.userInfo = userInfoModel;
+				//Save user info
+				AppRepository.sharedRepository.saveUserInfo(userInfoModel);
+			} else {
+				//Process the error object
+			}
 			callback(loginResponse, result.Error);
 		}
 	}
