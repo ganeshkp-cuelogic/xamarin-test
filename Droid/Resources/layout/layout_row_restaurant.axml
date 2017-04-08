@@ -29,7 +29,7 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:id="@+id/imgViewRes"
-                    android:src="@drawable/heroplaceholder"
+                    android:src="@drawable/restr"
                     android:scaleType="centerCrop" />
             </LinearLayout>
             <LinearLayout
