@@ -7,13 +7,17 @@ using System.Text;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
+using Android.Gms.Common;
 using Android.OS;
 using Android.Runtime;
+using Android.Util;
 using Android.Views;
 using Android.Widget;
+using Firebase;
+using Firebase.Iid;
 
 namespace TestDemo.Droid
-{	
+{
 	[Activity(Label = "@string/login",
 		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
 		ScreenOrientation = ScreenOrientation.Portrait)]
@@ -28,6 +32,30 @@ namespace TestDemo.Droid
 		{
 			base.OnCreate(savedInstanceState);
 			initUI();
+
+			//var options = new FirebaseOptions.Builder()
+			//.SetApplicationId("1:479717029344:android:9b7c3f5efa21c5ef")
+			//.SetApiKey("AIzaSyCyonXZHjL_6Uq5nFIWLKNSYwls1LVMNls")
+			////.SetDatabaseUrl("Firebase-Database-Url")
+			//.SetGcmSenderId("479717029344")
+			//.Build();
+
+			//var firebaseApp = FirebaseApp.InitializeApp(this, options);
+
+			if (Intent.Extras != null)
+			{
+				foreach (var key in Intent.Extras.KeySet())
+				{
+					//var value = Intent.Extras.GetString(key);
+					//Log.Debug(TAG, "Key: {0} Value: {1}", key, value);
+				}
+			}
+
+			IsPlayServicesAvailable();
+
+
+			var refreshedToken = FirebaseInstanceId.Instance.Token;
+			Console.WriteLine("Login Activity" + "Refreshed token: " + refreshedToken);
 		}
 
 		#region Private Methods
@@ -40,8 +68,10 @@ namespace TestDemo.Droid
 			mLoginButton = (TextView)FindViewById(Resource.Id.tvLogin);
 			mLoginButton.Click += (sender, e) =>
 			{
-				if(validateFields()) {
-					if(NetworkReachabilityManager.isInternetAvailable()) {
+				if (validateFields())
+				{
+					if (NetworkReachabilityManager.isInternetAvailable())
+					{
 						showLoadingIndicator("Signing in ...");
 						LoginAPIManager.
 								   SharedManager
@@ -50,18 +80,20 @@ namespace TestDemo.Droid
 											 hideProgressDialog();
 											 if (error == null)
 											 {
-											 //mMessageDialog.SendMessage("Login successfull", "Message");
-											 moveToMainScreen();
+												 //mMessageDialog.SendMessage("Login successfull", "Message");
+												 moveToMainScreen();
 											 }
 											 else
 											 {
 												 mMessageDialog.SendMessage(error.Message, "Alert");
 											 }
 										 });
-					} else {
+					}
+					else
+					{
 						mMessageDialog.SendMessage("No internet connection available");
 					}
-				}				
+				}
 			};
 		}
 
@@ -86,12 +118,42 @@ namespace TestDemo.Droid
 			return status;
 		}
 
-		private void moveToMainScreen() {
+		private void moveToMainScreen()
+		{
 			var intent = new Intent(this, typeof(GPRestaurantsActivity));
 			intent.AddFlags(ActivityFlags.ClearTop);
 			StartActivity(intent);
 			Finish();
 		}
 		#endregion
+
+
+
+
+		#region FCM Setup
+		public bool IsPlayServicesAvailable()
+		{
+			int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
+			if (resultCode != ConnectionResult.Success)
+			{
+				if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode)){
+					
+				}
+					//msgText.Text = GoogleApiAvailability.Instance.GetErrorString(resultCode);
+				else
+				{
+					//msgText.Text = "This device is not supported";
+					Finish();
+				}
+				return false;
+			}
+			else
+			{
+				//msgText.Text = "Google Play Services is available.";
+				return true;
+			}
+		}
+  		#endregion
+
 	}
 }

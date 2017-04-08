@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "479717029344",
+    "firebase_url": "https://xamarin-test-759d3.firebaseio.com",
+    "project_id": "xamarin-test-759d3",
+    "storage_bucket": "xamarin-test-759d3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:479717029344:android:9b7c3f5efa21c5ef",
+        "android_client_info": {
+          "package_name": "com.cuelogic.xamarintestdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "479717029344-pqa3u2ejfntr5f5uhfufekhapu7nrg26.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyonXZHjL_6Uq5nFIWLKNSYwls1LVMNls"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
