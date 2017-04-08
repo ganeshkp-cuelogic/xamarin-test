@@ -1,4 +1,5 @@
 ﻿using System;
+using Android.Locations;
 using SQLite;
 
 namespace TestDemo
@@ -21,5 +22,6 @@ namespace TestDemo
 		public string thumb { get; set; }
 		public string cuisines { get; set; }
 		public string average_cost_for_two { get; set; }
+		public string address { get; set; }
 	}
 }

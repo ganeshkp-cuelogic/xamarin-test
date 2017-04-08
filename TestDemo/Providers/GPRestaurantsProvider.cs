@@ -14,10 +14,10 @@ namespace TestDemo
 			
 		}
 
-		public void getRestaurants(Action<List<RestruantModel>, GPError> callback) {
+		public void getRestaurants(Tuple<double, double> location, Action<List<RestruantModel>, GPError> callback) {
 			GPError errorLocal = null;
 			if (NetworkReachabilityManager.isInternetAvailable()) {
-				restruantsAPI.getAllRestraunts((RestruantsResponse restruantResponse, GPError error) =>
+				restruantsAPI.getAllRestraunts(location,(RestruantsResponse restruantResponse, GPError error) =>
 				{
 					if (error == null) {
 						//Save in DB

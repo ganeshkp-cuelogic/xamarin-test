@@ -69,7 +69,7 @@ namespace TestDemo.iOS
 		}
 
 		public void moveToRestruantViewController() {
-			UINavigationController navigationController = new UINavigationController(UIStoryboard.FromName("Main", null).InstantiateViewController("GPRestruantsViewController"));
+			UINavigationController navigationController = new UINavigationController(UIStoryboard.FromName("Main", null).InstantiateViewController("GPRestruantsViewControllerID"));
 			Window.RootViewController = navigationController;
 		}
 

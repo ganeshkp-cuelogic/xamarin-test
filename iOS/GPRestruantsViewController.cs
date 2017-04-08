@@ -9,6 +9,8 @@ namespace TestDemo.iOS
 		RestrunatsDatasource dataSource = new RestrunatsDatasource();
 		private MessageDialog dialog = new MessageDialog();
 
+		Tuple<double, double> currentLocation;
+
         public GPRestruantsViewController (IntPtr handle) : base (handle)
         {
 			
@@ -18,8 +20,20 @@ namespace TestDemo.iOS
 		{
 			base.ViewDidLoad();
 			configureUI();
-			fetchRestruants();
-			//GPiOSLocationManager.sharedManager.StartLocationUpdates();
+		}
+
+		public override void ViewWillAppear(bool animated)
+		{
+			base.ViewWillAppear(animated);
+			if (DBManager.sharedManager.getCurrentSetting().location) {
+				GPiOSLocationManager.sharedManager.getCurrentLocation((Tuple<double, double> location) => {		
+					Console.WriteLine(location);
+					currentLocation = location;
+					fetchRestruants(currentLocation);
+				});
+			} else {
+				fetchRestruants(null);
+			}
 		}
 
 		private void addSettingsButton() {
@@ -40,24 +54,24 @@ namespace TestDemo.iOS
 			tblViewRestruants.ReloadData();
 		}    
 
-		private void fetchRestruants() {
-				showLoading("Fetching Restruants ...");
-				GPRestaurantsProvider.sharedProvider.getRestaurants((restaurants, error) =>
-				{
-					InvokeOnMainThread(() =>
+		private void fetchRestruants(Tuple<double, double> location) {
+			showLoading("Fetching Restruants ...");
+			GPRestaurantsProvider.sharedProvider.getRestaurants(location, (restaurants, error) => {
+				InvokeOnMainThread(() =>
 					{
 						hideLoading();
-						if (error == null) {
+						if (error == null)
+						{
 							dataSource = new RestrunatsDatasource(restaurants);
 							tblViewRestruants.Source = dataSource;
 							tblViewRestruants.ReloadData();
-						} else
+						}
+						else
 						{
 							dialog.SendMessage(error.Message);
 						}
-					});
-				});
-
+					});	
+			});
 		}
 	}
 }

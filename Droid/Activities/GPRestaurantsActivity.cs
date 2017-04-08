@@ -21,18 +21,38 @@ namespace TestDemo.Droid
 		ScreenOrientation = ScreenOrientation.Portrait)]
 	public class GPRestaurantsActivity : BaseActivity
 	{
-
 		RecyclerView mRecyclerView;
 		GPRestaurantsRecyclerViewAdapter adapter;
+		Tuple<double, double> location;
+
+		GPAndroidLocationManager locationManager;
 
 		protected override int LayoutResource => Resource.Layout.activity_restaurants;
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 			initUI();
-			fetchTheRestaurants();
-
 			SupportActionBar.SetDisplayHomeAsUpEnabled(false);
+		}
+
+		protected override void OnResume()
+		{
+			base.OnResume();
+			if (DBManager.sharedManager.getCurrentSetting().location)
+			{
+				showLoadingIndicator("Fetching current location ...");
+				locationManager = new GPAndroidLocationManager(this);
+				locationManager.getCurrentLocation((Tuple<double, double> location) =>
+				{
+					this.location = location;
+					hideProgressDialog();
+					fetchTheRestaurants(location);
+				});
+			}
+			else
+			{
+				fetchTheRestaurants(null);
+			}
 		}
 
 		public override bool OnCreateOptionsMenu(IMenu menu)
@@ -60,9 +80,9 @@ namespace TestDemo.Droid
 			ImageLoader.Instance.Init(config);
 		}
 
-		private void fetchTheRestaurants() {			
+		private void fetchTheRestaurants(Tuple<double, double> location) {			
 				showLoadingIndicator("Fetching Restaurants...");
-				GPRestaurantsProvider.sharedProvider.getRestaurants((restaurants, error) =>
+				GPRestaurantsProvider.sharedProvider.getRestaurants(location,(restaurants, error) =>
 				{
 					this.RunOnUiThread(() =>
 					{						

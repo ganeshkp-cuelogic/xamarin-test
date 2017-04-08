@@ -41,7 +41,8 @@ namespace TestDemo.iOS
 			lblCost.Text = "Minimum cost for two : " + restruantModel.restaurant.average_cost_for_two;
 
 			UILabel lblCuisine = (UILabel)cell.ContentView.ViewWithTag(400);
-			lblCuisine.Text = (restruantModel.restaurant.cuisines == "") ? "NA" : restruantModel.restaurant.cuisines;
+			lblCuisine.Text = restruantModel.restaurant.address;
+			//lblCuisine.Text = (restruantModel.restaurant.cuisines == "") ? "NA" : restruantModel.restaurant.cuisines;
 
 			cell.LayoutIfNeeded();
 			cell.SetNeedsLayout();

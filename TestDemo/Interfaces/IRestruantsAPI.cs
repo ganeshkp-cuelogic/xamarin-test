@@ -3,6 +3,6 @@ namespace TestDemo
 {
 	public interface IRestruantsAPI
 	{
-		void getAllRestraunts(Action<RestruantsResponse, GPError> callback);
+		void getAllRestraunts(Tuple<double, double> location, Action<RestruantsResponse, GPError> callback);
 	}
 }

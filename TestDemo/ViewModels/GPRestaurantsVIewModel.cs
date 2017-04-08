@@ -23,12 +23,12 @@ namespace TestDemo
 				return;
 			IsBusy = true;
 
-			restaurants.Clear();
-			restruantsAPI.getAllRestraunts((RestruantsResponse restruants, GPError arg2) =>
-			{
-				restaurants.ReplaceRange(restruants.restaurants);
-				IsBusy = false;
-			});
+			//restaurants.Clear();
+			//restruantsAPI.getAllRestraunts((RestruantsResponse restruants, GPError arg2) =>
+			//{
+			//	restaurants.ReplaceRange(restruants.restaurants);
+			//	IsBusy = false;
+			//});
 		}
 	}
 }

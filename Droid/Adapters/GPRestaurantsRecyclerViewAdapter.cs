@@ -36,7 +36,8 @@ namespace TestDemo.Droid
 			var myHolder = holder as RestaurantViewHolder;
 			myHolder.tvName.Text = restaurant.restaurant.name;
 			myHolder.tvCost.Text =  "Average cost for two : " + restaurant.restaurant.average_cost_for_two;
-			myHolder.tvCuisine.Text = (restaurant.restaurant.cuisines == "") ? "NA": restaurant.restaurant.cuisines;
+			myHolder.tvCuisine.Text = restaurant.restaurant.address;
+			//myHolder.tvCuisine.Text = (restaurant.restaurant.cuisines == "") ? "NA": restaurant.restaurant.cuisines;
 
 			DisplayImageOptions options = new DisplayImageOptions.Builder().
 			                                                     ShowImageForEmptyUri(Resource.Drawable.restr)
