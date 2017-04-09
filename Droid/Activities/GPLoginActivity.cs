@@ -28,6 +28,7 @@ namespace TestDemo.Droid
 		EditText mEditTextEmail, mEditTextPassword;
 		TextView mLoginButton;
 
+		#region View Life Cycle Methods
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
@@ -53,10 +54,10 @@ namespace TestDemo.Droid
 
 			IsPlayServicesAvailable();
 
-
 			var refreshedToken = FirebaseInstanceId.Instance.Token;
 			Console.WriteLine("Login Activity" + "Refreshed token: " + refreshedToken);
 		}
+		#endregion 
 
 		#region Private Methods
 		private void initUI()
@@ -126,8 +127,6 @@ namespace TestDemo.Droid
 			Finish();
 		}
 		#endregion
-
-
 
 
 		#region FCM Setup
