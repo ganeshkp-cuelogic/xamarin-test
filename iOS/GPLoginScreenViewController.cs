@@ -103,7 +103,7 @@ namespace TestDemo.iOS
 											 hideLoading();
 											 if (error == null)
 											 {
-												 dialog.SendMessage("Login successfull", "Message");
+												// dialog.SendMessage("Login successfull", "Message");
 												 moveToRestruantsScreen();
 											 }
 											 else
